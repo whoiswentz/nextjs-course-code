@@ -1,0 +1,14 @@
+version: 0.0
+os: linux
+files:
+ - source: .
+   destination: /home/ec2-user/nextjs
+hooks:
+  AfterInstall:
+   - location: scripts/install_deps
+     timeout: 300
+     runas: root
+  ApplicationStart:
+   - location: scripts/start_app
+     timeout: 300
+     runas: root
